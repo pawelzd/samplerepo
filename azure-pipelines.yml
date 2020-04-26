@@ -11,12 +11,12 @@ steps:
   displayName: 'Run a one-line script'
 
 - task: Kubernetes@0
-  displayName: 'kubectl exec -it rm -rf'
+  displayName: 'kubectl exec -it rm -r'
   inputs:
     kubernetesServiceConnection: jhubpockubectl
     namespace: jhub
     command: exec
-    arguments: '-it jupyter-$(USER) -- sh -c "\"rm -rf $(GITHUB_REPO)\""'
+    arguments: '-it jupyter-$(USER) -- sh -c "\"rm -r $(GITHUB_REPO)\""'
     kubectlOutput: 'available_pods'
 - task: Kubernetes@0
   displayName: 'kubectl exec -it git clone'
