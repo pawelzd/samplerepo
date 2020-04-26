@@ -11,18 +11,16 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-- task: Kubernetes@1
+
+- task: Kubernetes@0
+  displayName: 'kubectl exec -it '
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'jhubpockubectl'
-    namespace: 'jhub'
-    command: 'get'
-    arguments: 'pod'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+    kubernetesServiceConnection: jhubpockubectl
+    namespace: jhub
+    command: exec
+    arguments: '-it jupyter-pawel -- bash -c "git clone \"$GITHUB_REPO\""'
+    kubectlOutput: 'available_pods'
+
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
