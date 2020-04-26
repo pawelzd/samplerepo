@@ -16,7 +16,7 @@ steps:
     kubernetesServiceConnection: jhubpockubectl
     namespace: jhub
     command: exec
-    arguments: '-it jupyter-$(USER) -- bash -c "\"rm -rf $(GITHUB_REPO)\""'
+    arguments: '-it jupyter-$(USER) -- sh -c "\"rm -rf $(GITHUB_REPO)\""'
     kubectlOutput: 'available_pods'
 - task: Kubernetes@0
   displayName: 'kubectl exec -it git clone'
@@ -24,7 +24,7 @@ steps:
     kubernetesServiceConnection: jhubpockubectl
     namespace: jhub
     command: exec
-    arguments: '-it jupyter-$(USER) -- bash -c "\"git clone $(GITHUB_REPO)\""'
+    arguments: '-it jupyter-$(USER) -- sh -c "\"git clone $(GITHUB_REPO)\""'
     kubectlOutput: 'available_pods'
 
 
