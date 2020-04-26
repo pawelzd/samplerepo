@@ -11,6 +11,7 @@ steps:
   displayName: 'Run a one-line script'
 
 
+
 - task: Kubernetes@0
   displayName: 'kubectl exec -it git clone'
   inputs:
