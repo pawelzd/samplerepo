@@ -3,8 +3,7 @@
 trigger:
 - manual
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: devopsdeploy
 
 steps:
 - script: echo Hello, world!
